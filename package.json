@@ -1,7 +1,11 @@
 {
-  "name": "projeto#0",
+  "name": "projeto0",
   "version": "1.0.0",
   "main": "index.js",
   "author": "DukiDodier <duki.dodier@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.3"
+  }
 }
