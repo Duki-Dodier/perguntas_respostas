@@ -1,4 +1,5 @@
 const express = require("express");
+const res = require("express/lib/response");
 
 const app = express();
 
@@ -8,18 +9,12 @@ app.set("view engine", "ejs");
 app.use(express.static('public'))
 
 
-app.get("/:nome", (request, response) => {
-    const nome = request.params.nome;
-    const msg = true;
-
-    let produtos = [
-        { nome: "coca", preco: 5 },
-        { nome: "pipoca", preco: 3 },
-        {nome:"cerveja", preco:7}
-    ]
-
-  response.render("index",{nome, msg,produtos});
+app.get("/", (request, response) => {
+    response.render("index");
 });
+app.get("/perguntar", (request, response) => {
+  response.render("perguntar");
+})
 
 const port = 3000;
 app.listen(port, function (e) {
