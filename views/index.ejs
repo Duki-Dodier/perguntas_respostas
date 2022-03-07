@@ -10,8 +10,13 @@
     <h1>Guia Perguntas</h1>
 
     <%= nome %>
-    <hr>
-    <%= objetu.sobrenome %>
-    <%= objetu.idade %>
+   
+    <!-- condicional EJS-->
+    <% if(msg){%>
+        <h3>isso é uma msg erro</h3>
+    <%} else {%>
+        <h2>esta tudo certo</h2>
+    <%}%>
+
 </body>
 </html>

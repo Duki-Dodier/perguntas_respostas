@@ -7,9 +7,9 @@ app.set("view engine", "ejs");
 
 app.get("/:nome", (request, response) => {
     const nome = request.params.nome;
-    
-    const objetu = {sobrenome:"andrade", idade:32}
-  response.render("index",{nome,objetu});
+
+    const msg = true;
+  response.render("index",{nome, msg});
 });
 
 const port = 3000;
