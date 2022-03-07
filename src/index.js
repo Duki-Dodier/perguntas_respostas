@@ -7,9 +7,15 @@ app.set("view engine", "ejs");
 
 app.get("/:nome", (request, response) => {
     const nome = request.params.nome;
-
     const msg = true;
-  response.render("index",{nome, msg});
+
+    let produtos = [
+        { nome: "coca", preco: 5 },
+        { nome: "pipoca", preco: 3 },
+        {nome:"cerveja", preco:7}
+    ]
+
+  response.render("index",{nome, msg,produtos});
 });
 
 const port = 3000;

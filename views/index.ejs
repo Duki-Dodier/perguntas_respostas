@@ -18,5 +18,12 @@
         <h2>esta tudo certo</h2>
     <%}%>
 
+    <!--Repeticao-->
+
+    <% produtos.forEach(function(produto){%>
+        <%= produto.nome %>
+        <%= produto.preco %>
+   <% }) %>
+
 </body>
 </html>
