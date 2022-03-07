@@ -1,5 +1,17 @@
 const express = require("express");
 const bodyparser = require("body-parser");
+const connection = require("../database/database");
+const perguntaModel = require("../database/Model/Pergunta");
+
+connection
+  .authenticate()
+  .then(() => {
+    console.log("conexão banco de dados feita com sucesso🤖");
+  })
+  .catch((e) => {
+    console.log(`❌FALHA NA CONEXAO:${e}`);
+  });
+
 const app = express();
 
 // Configura o express para usar o EJS com View Engine
@@ -12,7 +24,6 @@ app.use(express.static("public"));
 // para o formato que queremos, o body-parser faz isso
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
-
 
 //rotas
 app.get("/", (request, response) => {
@@ -30,6 +41,6 @@ app.post("/salvarpergunta", (request, response) => {
 
 const port = 3000;
 app.listen(port, function (e) {
-  if (e) console.error(`ERROR SERVIDOR >>> ${e}`);
+  if (e) console.error(`❌ERROR SERVIDOR >>> ${e}`);
   console.log("ServidorRodando 🚀");
 });
