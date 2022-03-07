@@ -4,6 +4,9 @@ const app = express();
 
 // Configura o express para usar o EJS com View Engine
 app.set("view engine", "ejs");
+//indicando ao express onde fica os arquivos estáticos
+app.use(express.static('public'))
+
 
 app.get("/:nome", (request, response) => {
     const nome = request.params.nome;
