@@ -27,14 +27,14 @@ app.use(bodyparser.urlencoded({ extended: false }));
 
 //rotas
 app.get("/", (request, response) => {
-  Pergunta.findAll({ raw: true }).then(perguntas => {
-    console.log(perguntas)
-    response.render("index", {perguntas:perguntas});
-  })
-  
+  Pergunta.findAll({
+    raw: true,
+    order: [["id", "DESC"]],
+  }).then((perguntas) => {
+    console.log(perguntas);
+    response.render("index", { perguntas: perguntas });
+  });
 });
-
-
 
 app.get("/perguntar", (request, response) => {
   response.render("perguntar");
