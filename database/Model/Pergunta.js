@@ -19,3 +19,5 @@ const Pergunta = connection.define(
 Pergunta.sync({ force: false }).then(() => { console.log("tabela criada com sucesso")})
     .catch((e) => { console.log(`❌Erro Criar TABELA ${e}`) })
  // force:false, não vai forçar caso tabela já exista
+
+ module.exports = Pergunta;
