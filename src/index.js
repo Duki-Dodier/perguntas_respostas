@@ -27,8 +27,15 @@ app.use(bodyparser.urlencoded({ extended: false }));
 
 //rotas
 app.get("/", (request, response) => {
-  response.render("index");
+  Pergunta.findAll({ raw: true }).then(perguntas => {
+    console.log(perguntas)
+    response.render("index", {perguntas:perguntas});
+  })
+  
 });
+
+
+
 app.get("/perguntar", (request, response) => {
   response.render("perguntar");
 });
